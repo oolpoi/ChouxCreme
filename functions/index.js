@@ -52,13 +52,10 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
   }); 
   }
   
+  
+
+
   function searchRecipeByIngredents(agent){
-    
-      
-  }
-
-
-  function decoy(agent){
     const ingredients = agent.parameters.ingredents;
     agent.add(`Searching for recipe that includes "${ingredients}."`);
     var request = require("request");
@@ -211,7 +208,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
   let intentMap = new Map();
   intentMap.set('Default Welcome Intent', welcome);
   intentMap.set('Default Fallback Intent', fallback);
-  intentMap.set('Get Reciepe By Ingredient',decoy);
+  intentMap.set('Get Reciepe By Ingredient',searchRecipeByIngredents);
   intentMap.set('Food Recipes',searchRecipes);
   intentMap.set('Random Recipes',getRandomRecipe);
   intentMap.set('Food Instruction',searchInstructionByName);
